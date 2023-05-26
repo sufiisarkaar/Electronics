@@ -13,6 +13,15 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { ProductsComponent } from './components/products/products.component';
 import { UpBannerComponent } from './components/up-banner/up-banner.component';
 import { DownBannerComponent } from './components/down-banner/down-banner.component';
+import { MenComponent } from './components/categories/men/men.component';
+import { KidsComponent } from './components/categories/kids/kids.component';
+import { WomenComponent } from './components/categories/women/women.component';
+import { TshirtsComponent } from './components/categories/tshirts/tshirts.component';
+import { JeansComponent } from './components/categories/jeans/jeans.component';
+import { SunglassComponent } from './components/categories/sunglass/sunglass.component';
+import { ShirtsComponent } from './components/categories/shirts/shirts.component';
+import { ShoesComponent } from './components/categories/shoes/shoes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,11 +36,20 @@ import { DownBannerComponent } from './components/down-banner/down-banner.compon
     CategoriesComponent,
     ProductsComponent,
     UpBannerComponent,
-    DownBannerComponent
+    DownBannerComponent,
+    MenComponent,
+    KidsComponent,
+    WomenComponent,
+    TshirtsComponent,
+    JeansComponent,
+    SunglassComponent,
+    ShirtsComponent,
+    ShoesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
  
   ],
   providers: [],
