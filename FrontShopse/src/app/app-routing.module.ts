@@ -8,6 +8,8 @@ import { ShoesComponent } from './components/categories/shoes/shoes.component';
 import { SunglassComponent } from './components/categories/sunglass/sunglass.component';
 import { TshirtsComponent } from './components/categories/tshirts/tshirts.component';
 import { ProductsComponent } from './components/products/products.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'shoes', component: ShoesComponent },
   { path: 'sunglass', component: SunglassComponent },
   { path: 'jeans', component: JeansComponent },
+  { path: 'login', component: LoginUserComponent },
+  { path: 'register', component: RegisterUserComponent },
 
 ];
 

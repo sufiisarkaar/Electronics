@@ -22,6 +22,11 @@ import { SunglassComponent } from './components/categories/sunglass/sunglass.com
 import { ShirtsComponent } from './components/categories/shirts/shirts.component';
 import { ShoesComponent } from './components/categories/shoes/shoes.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -49,8 +54,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
- 
+    HttpClientModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

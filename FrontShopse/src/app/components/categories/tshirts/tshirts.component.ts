@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-tshirts',
@@ -6,5 +7,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./tshirts.component.scss']
 })
 export class TshirtsComponent {
+  tShirtsList: any[] = [];
+  constructor(private productSer: ProductService) {}
 
+  ngOnInit(): void {
+    this.getAllTshirts();
+  }
+
+  getAllTshirts() {
+    this.productSer.getAllProduct().subscribe((res: any) => {
+      const filter: any = res.Result.filter((response: any) => {
+        return response.item_category === 'T-shirts';
+      });
+      if (filter) {
+        this.tShirtsList = filter;
+      }
+    });
+  }
+
+  addToCart(items:any){
+    console.log(items);
+
+this.productSer.cartData.emit(items);
+  }
 }

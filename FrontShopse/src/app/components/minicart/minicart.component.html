@@ -1,19 +1,25 @@
 <!--Mini Cart-->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class=" container"  >
     <div class="offcanvas-header">
       <h5 id="offcanvasRightLabel">Mini Cart</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close text-reset" mat-dialog-close data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <ul class="list-group">
-        <li class="list-group-item"><img width="30" class="img-fluid me-1"
-            src="https://therichpost.com/testjsonapi/wp-content/themes/testjsonapi/assets/images/items/8.jpg">Item 1 <i
-            class="bi bi-x-circle-fill float-end"></i></li>
-        <li class="list-group-item"><img width="30" class="img-fluid me-1"
-            src="https://therichpost.com/testjsonapi/wp-content/themes/testjsonapi/assets/images/items/7.jpg">Item 2 <i
-            class="bi bi-x-circle-fill float-end"></i></li>
+      <ul class="list-group" *ngFor="let cart of cartData">
+        <li class="list-group-item d-flex justify-content-between"><img width="30" class="img-fluid me-1"
+            src="{{cart.item_image}}" > <p  class="text-start" style="width:150px;">{{cart.item_name}}</p>
+            <div class="btnMP">
+              <button class="btn btn-dark btn-sm rounded-0" (click)="minusQuantity(cart.item_qty,cart.item_id)">-</button>
+              <button class="btn btn-dark btn-sm rounded-0">{{ cart.item_qty }}</button>
+              <button class="btn btn-dark btn-sm rounded-0" (click)="plusQuantity(cart.item_qty,cart.item_id)">+</button>
+            </div>
+            <i class="bi bi-x-circle-fill float-end"></i>
+          </li>
+
       </ul>
       <button type="button" class="btn btn-dark mt-2 float-end btn-sm" style="width: 100%;">Checkout</button>
     </div>
   </div>
   <!--Mini Cart-->
+
+

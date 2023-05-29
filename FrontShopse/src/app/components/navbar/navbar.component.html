@@ -27,21 +27,33 @@
               <li><a class="dropdown-item" href="#">Coming More Soon</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <button type="button" class="btn btn-secondary position-relative" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <li class="nav-item dropdown mx-3">
+            <button type="button" class="btn btn-secondary position-relative" (click)="openCart()">
               <i class="bi bi-cart"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                4+
+               {{ cartLength }}
                 <span class="visually-hidden">unread messages</span>
               </span>
             </button>
+
           </li>
+
+            <li class="nav-item mx-3">
+              <a class="nav-link " aria-current="page" routerLink="login">Login</a>
+            </li>
+
         </ul>
+
+
         <form class="d-flex">
+
+
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+
+
+
       </div>
     </div>
   </nav>

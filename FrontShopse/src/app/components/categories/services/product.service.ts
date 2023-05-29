@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +7,11 @@ import { Injectable } from '@angular/core';
 export class ProductService {
 
   constructor(private http:HttpClient) { }
+cartData = new EventEmitter<any[] | []>();
+
 
 getAllProduct(){
-  return this.http.get("https://fakestoreapi.com/products");
+  return this.http.get("http://127.0.0.1:8000/api/itemGet");
 }
 
 }
