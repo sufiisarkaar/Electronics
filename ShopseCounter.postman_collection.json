@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "e4705a57-1db2-4567-9e12-c40dcfdf6c88",
+		"name": "ShopseCounter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25043235"
+	},
+	"item": [
+		{
+			"name": "Add Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"item_name\": \"Levis Jeans\",\r\n    \"item_category\" : \"Jeans\",\r\n    \"item_price\": 1600,\r\n    \"item_dsc\": \"This Good Quality Levis Jeans.\",\r\n    \"item_qty\": 1,\r\n    \"item_image\": \"https://freepngimg.com/download/jeans/8-2-jeans-png-image.png\",\r\n    \"item_discount\": 16\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addProduct",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/itemGet",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"itemGet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
