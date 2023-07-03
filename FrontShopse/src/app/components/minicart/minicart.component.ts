@@ -1,10 +1,12 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
+import {  fadeLogin } from 'src/app/animations';
 import { CartService } from '../categories/services/cart.service';
 
 @Component({
   selector: 'app-minicart',
   templateUrl: './minicart.component.html',
-  styleUrls: ['./minicart.component.scss']
+  styleUrls: ['./minicart.component.scss'],
+  animations:[fadeLogin]
 })
 export class MinicartComponent implements OnInit {
   cartData:any;
@@ -25,10 +27,10 @@ getCartData(){
   if(userId) {
     this.CS.getCartDataByUserID(userId).subscribe((res: any) => {
       this.cartData = res.data;
-      console.log(this.cartData,"ddddddddd");
-
+      
       this.cartCount = res.data.length;
       this.grandTotal = res.grandTotal;
+      console.log(this.grandTotal,"ddddddddd");
     });
   } else {
     this.CS.getLocalData().subscribe((res: any) => {
@@ -41,13 +43,24 @@ getCartData(){
 
 
 plusQuantity( qty:any, id:any){
-qty++;
-console.log(qty);
+  console.log(id,"ssssssssss");
+
+this.CS.updatePlusQTY(id,qty).subscribe((res:any)=>{
+  console.log(res,"QUANTITY");
+  this.getCartData();
+  
+})
 
 }
 
 minusQuantity(qty:any, id:any){
-  qty--;
+  console.log(id,"dddddddd");
+  
+  this.CS.updateMinusQTY(id,qty).subscribe((res:any)=>{
+    console.log(res,"QUANTITY");
+    this.getCartData();
+    
+  })
 }
 
 }

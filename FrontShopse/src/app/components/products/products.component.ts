@@ -4,11 +4,13 @@ import { CartService } from '../categories/services/cart.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MinicartComponent } from '../minicart/minicart.component';
 import { MatButtonModule } from '@angular/material/button';
+import { fade } from 'src/app/animations';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
+  animations:[fade]
  
 })
 export class ProductsComponent implements OnInit {
@@ -34,9 +36,14 @@ export class ProductsComponent implements OnInit {
 
   addToCart(items: any) {
     let user: any = localStorage.getItem("user");
-    let userID = user && JSON.parse(user);
+    let userID = user && JSON.parse(user).data.id;
+
     if (userID) {
-      this.CartSer.addToCart(items).subscribe((res: any) => {
+      let storeDataWithID = {
+        ...items,
+        user_id: userID
+      }
+      this.CartSer.addToCart(storeDataWithID).subscribe((res: any) => {
         console.log(res, "res");
         this.productSer.cartData.emit(res);
       })

@@ -1,11 +1,11 @@
 <!--Mini Cart-->
-<div class=" container"  >
+<div class=" container"  @fadeLogin >
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Mini Cart</h5>
+      <h5 id="offcanvasRightLabel" class="mt-3">Mini Cart</h5>
       <button type="button" class="btn-close text-reset" mat-dialog-close data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <ul class="list-group" *ngFor="let cart of cartData">
+    <div class="offcanvas-body" >
+      <ul class="list-group mt-3" *ngFor="let cart of cartData">
         <li class="list-group-item d-flex justify-content-between"><img width="30" class="img-fluid me-1"
             src="{{cart.item_image}}" > <p  class="text-start" style="width:150px;">{{cart.item_name}}</p>
             <div class="btnMP">
@@ -13,11 +13,27 @@
               <button class="btn btn-dark btn-sm rounded-0">{{ cart.item_qty }}</button>
               <button class="btn btn-dark btn-sm rounded-0" (click)="plusQuantity(cart.item_qty,cart.item_id)">+</button>
             </div>
-            <i class="bi bi-x-circle-fill float-end"></i>
+            <div class="list-group mt-1 text-success text-end">
+              <li class=" ">Sub-Total :  {{ cart.item_subtotal }}</li>
+            </div>
+            <!-- <i class="bi bi-x-circle-fill float-end"></i> -->
           </li>
 
+
+
       </ul>
-      <button type="button" class="btn btn-dark mt-2 float-end btn-sm" style="width: 100%;">Checkout</button>
+<div class="row d-flex justify-content-center">
+
+
+      <div class="col-5 list-group mt-3 mb-2 text-danger text-start">
+        <b class=" ">Grand-Total :  {{ grandTotal }}</b>
+      </div>
+      
+      <div class="btnPlace col-5">
+        <button type="button" class="btn btn-dark  mt-3 mb-2  btn-sm w-100" >Checkout</button>
+      </div>
+
+    </div>
     </div>
   </div>
   <!--Mini Cart-->

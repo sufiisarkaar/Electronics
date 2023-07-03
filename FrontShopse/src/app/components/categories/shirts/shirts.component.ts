@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { fade } from 'src/app/animations';
 import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-shirts',
   templateUrl: './shirts.component.html',
-  styleUrls: ['./shirts.component.scss']
+  styleUrls: ['./shirts.component.scss'],
+  animations:[fade]
 })
 export class ShirtsComponent {
   shirtList: any[] = [];

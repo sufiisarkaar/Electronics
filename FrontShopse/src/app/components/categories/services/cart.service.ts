@@ -38,4 +38,14 @@ PendingdataAddedLocalToDb(data: any) {
   return this.http.post("http://localhost:8000/api/addPending", data);
 }
 
+
+updatePlusQTY(id:any, qty:any){
+return this.http.put("http://localhost:8000/api/updateQtyPlus/"+id, qty);
+}
+
+updateMinusQTY(id:any, qty:any){
+  return this.http.put("http://localhost:8000/api/updateQtyMinus/"+id, qty);
+  }
+  
+
 }

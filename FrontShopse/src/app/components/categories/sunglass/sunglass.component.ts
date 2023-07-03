@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { fade } from 'src/app/animations';
 import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-sunglass',
   templateUrl: './sunglass.component.html',
-  styleUrls: ['./sunglass.component.scss']
+  styleUrls: ['./sunglass.component.scss'],
+  animations:[fade]
 })
 export class SunglassComponent {
   sunglassList: any[] = [];

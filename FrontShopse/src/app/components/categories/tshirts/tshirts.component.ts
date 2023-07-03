@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { fade } from 'src/app/animations';
 import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-tshirts',
   templateUrl: './tshirts.component.html',
-  styleUrls: ['./tshirts.component.scss']
+  styleUrls: ['./tshirts.component.scss'],
+  animations:[fade]
 })
-export class TshirtsComponent {
+export class TshirtsComponent implements OnInit {
   tShirtsList: any[] = [];
   constructor(private productSer: ProductService) {}
 

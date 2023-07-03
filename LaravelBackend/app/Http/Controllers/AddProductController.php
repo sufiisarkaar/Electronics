@@ -24,8 +24,6 @@ class AddProductController extends Controller
         // $addProduct->item_subtotal = $item_total - $item_disc;
 
         $addProduct->save();
-
-
         return ["Product Added", "data" => $addProduct];
     }
 

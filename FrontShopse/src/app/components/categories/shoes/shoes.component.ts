@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { fade } from 'src/app/animations';
 import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-shoes',
   templateUrl: './shoes.component.html',
-  styleUrls: ['./shoes.component.scss']
+  styleUrls: ['./shoes.component.scss'],
+  animations:[fade]
 })
 export class ShoesComponent {
   shoesList: any[] = [];

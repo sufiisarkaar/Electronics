@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { fade } from 'src/app/animations';
 import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-jeans',
   templateUrl: './jeans.component.html',
   styleUrls: ['./jeans.component.scss'],
+  animations:[fade]
 })
 export class JeansComponent implements OnInit {
   jeansList: any[] = [];
