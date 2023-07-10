@@ -42,18 +42,31 @@ getCartData(){
 }
 
 
-plusQuantity( qty:any, id:any){
-  console.log(id,"ssssssssss");
+plusQuantity( id:any, qty:any){
+  let user :any= localStorage.getItem("user");
+  let userID = user && JSON.parse( user ).data.id;
+  if(userID){
+    console.log("user exist");
 
-this.CS.updatePlusQTY(id,qty).subscribe((res:any)=>{
-  console.log(res,"QUANTITY");
-  this.getCartData();
-  
-})
+    this.CS.updatePlusQTY(id,qty).subscribe((res:any)=>{
+      this.getCartData();
+      console.log(res,"DBUpdatedeQTY");
+      
+    })
+  }else{
+    console.log("user not exist");
+    this.CS.LocalupdateCartQuantityPlus(id,qty).subscribe((res:any)=>{
+      this.getCartData();
+      console.log(res,"LocalUpdatedQTY");
+      
+    })
+    
+  }
+ 
 
 }
 
-minusQuantity(qty:any, id:any){
+minusQuantity( id:any, qty:any){
   console.log(id,"dddddddd");
   
   this.CS.updateMinusQTY(id,qty).subscribe((res:any)=>{

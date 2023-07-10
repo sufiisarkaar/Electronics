@@ -14,7 +14,9 @@ constructor(private productSer:ProductService, private dialog: MatDialog){}
 
 ngOnInit(): void {
  this.productSer.cartData.subscribe((res:any)=>{
-  this.cartLength = res.length;
+  this.cartLength = res.length ;
+
+  
  })
 }
 

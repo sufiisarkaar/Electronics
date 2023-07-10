@@ -47,6 +47,7 @@ export class ProductsComponent implements OnInit {
         console.log(res, "res");
         this.productSer.cartData.emit(res);
       })
+     
     } else {
 
       let cartData = JSON.parse(localStorage.getItem('cartItem') || '[]') as string[];

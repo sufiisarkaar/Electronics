@@ -78,7 +78,7 @@ class AddToCartController extends Controller
 
     public function updateQuantityPlus(Request $request, $id){
     $updateQuantity = AddToCart::find($id);
-    // if($updateQuantity){
+    if($updateQuantity){
         $updateQuantity->item_qty =  $updateQuantity->item_qty + 1;
 
         $item_total = $updateQuantity->item_price*$updateQuantity->item_qty;
@@ -87,7 +87,9 @@ class AddToCartController extends Controller
         $updateQuantity->save();
 
         return ["Message"=>"Cart Quantity Updated","Result"=>$updateQuantity];
-    // }
+    }else{
+        return ["Message"=>"Fail"];
+    }
     }
 
     public function updateQuantityMinus($id){

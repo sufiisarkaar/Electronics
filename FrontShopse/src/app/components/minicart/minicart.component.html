@@ -9,9 +9,9 @@
         <li class="list-group-item d-flex justify-content-between"><img width="30" class="img-fluid me-1"
             src="{{cart.item_image}}" > <p  class="text-start" style="width:150px;">{{cart.item_name}}</p>
             <div class="btnMP">
-              <button class="btn btn-dark btn-sm rounded-0" (click)="minusQuantity(cart.item_qty,cart.item_id)">-</button>
+              <button class="btn btn-dark btn-sm rounded-0" (click)="minusQuantity(cart.id,cart.item_qty)">-</button>
               <button class="btn btn-dark btn-sm rounded-0">{{ cart.item_qty }}</button>
-              <button class="btn btn-dark btn-sm rounded-0" (click)="plusQuantity(cart.item_qty,cart.item_id)">+</button>
+              <button class="btn btn-dark btn-sm rounded-0" (click)="plusQuantity(cart.id,cart.item_qty)">+</button>
             </div>
             <div class="list-group mt-1 text-success text-end">
               <li class=" ">Sub-Total :  {{ cart.item_subtotal }}</li>
