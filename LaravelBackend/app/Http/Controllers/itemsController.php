@@ -11,6 +11,7 @@ class itemsController extends Controller
     public function postData(Request $request){
        $items = new Items;
        $items->item_name = $request->item_name;
+       $items->item_category = $request->item_category;
        $items->item_price = $request->item_price;
        $items->item_discount = $request->item_discount;
        $items->item_image = $request->item_image;
