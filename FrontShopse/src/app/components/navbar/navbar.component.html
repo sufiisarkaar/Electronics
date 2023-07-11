@@ -36,15 +36,26 @@
               </span>
             </button>
 
+
+            
           </li>
 
+
+         
+
             <li class="nav-item mx-3">
-              <a class="nav-link " aria-current="page" routerLink="login">Login</a>
+              <a class="nav-link " aria-current="page" routerLink="login">{{ userName? userName : 'Login' }}</a>
+            </li>
+
+            <li class="nav-item mx-3" *ngIf="userName">
+              <a class="nav-link " aria-current="page" (click)="logout()"  style=" cursor:pointer;">Logout</a>
             </li>
 
         </ul>
 
-
+        
+       
+      
         <form class="d-flex">
 
 
@@ -56,4 +67,6 @@
 
       </div>
     </div>
+
   </nav>
+  

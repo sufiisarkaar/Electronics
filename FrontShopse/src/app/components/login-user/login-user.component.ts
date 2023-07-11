@@ -21,10 +21,15 @@ password : this.fb.control('',[Validators.required]),
   }
 
   ngOnInit(): void {
-    
+    let user:any = localStorage.getItem("user");
+  let userName = user && JSON.parse( user ).data.name;
+ this.US.userName.emit(userName);
   }
 
 loginUser(data:any){
   this.US.userLogin(data);
+  let user:any = localStorage.getItem("user");
+  let userName = user && JSON.parse( user ).data.name;
+ this.US.userName.emit(userName);
 }
 }

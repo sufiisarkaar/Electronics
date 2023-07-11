@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private http: HttpClient, private CS: CartService) { }
+userName = new EventEmitter<any>();
+  constructor(private http: HttpClient, private CS: CartService, private router:Router) { }
 
   baseURL$ = "http://127.0.0.1:8000/api";
 
@@ -23,6 +24,7 @@ export class UserService {
         setTimeout(() => {
         this.cartTodb();
         }, 2000);
+this.router.navigateByUrl("");
   } else {
         console.log(result.body.error);
       }
