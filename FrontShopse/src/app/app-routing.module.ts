@@ -10,6 +10,7 @@ import { TshirtsComponent } from './components/categories/tshirts/tshirts.compon
 import { ProductsComponent } from './components/products/products.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { MyOrderComponent } from './components/my-order/my-order.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'jeans', component: JeansComponent },
   { path: 'login', component: LoginUserComponent },
   { path: 'register', component: RegisterUserComponent },
+  { path: 'myOrder', component: MyOrderComponent}
 
 ];
 

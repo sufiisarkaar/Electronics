@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MyOrderComponent } from './components/my-order/my-order.component';
 
 
 
@@ -50,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     JeansComponent,
     SunglassComponent,
     ShirtsComponent,
-    ShoesComponent
+    ShoesComponent,
+    MyOrderComponent
   ],
   imports: [
     BrowserModule,

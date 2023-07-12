@@ -8,6 +8,7 @@ export class CartService {
 
   constructor(private http:HttpClient) { }
 cartData : EventEmitter<any> = new EventEmitter<any>();
+myOrder : EventEmitter<any> = new EventEmitter<any>();
 
 
 addToCart(cartData:any){
@@ -48,4 +49,30 @@ updateMinusQTY(id:any, qty:any){
   }
   
 
+  placeMyOrder(order:any){
+return this.http.post("http://localhost:8000/api/postMyOrder",order);
+  }
+
+  truncateAddToCarts(id:any){
+    return this.http.get("http://localhost:8000/api/addToCartsTruncate/"+id);
+  }
+
+  
+
+  truncatePendingCartsTable(){
+   this.http.get("http://localhost:8000/api/truncateTable").subscribe((res:any)=>{
+      console.log(res,"PENDINGCARTS");
+      });
+  }
+
+
+  getMyOrder(userID:any){
+    return this.http.get("http://localhost:8000/api/getMyOrder/"+userID);
+  }
+
+  
+
+  cancelOrder(orderID:any){
+    return this.http.get("http://localhost:8000/api/cancelOrder/"+orderID)
+  }
 }

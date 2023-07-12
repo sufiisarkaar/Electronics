@@ -5,9 +5,9 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductService {
+  cartData = new EventEmitter<any[] | []>();
 
   constructor(private http:HttpClient) { }
-cartData = new EventEmitter<any[] | []>();
 
 
 getAllProduct(){

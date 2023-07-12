@@ -53,7 +53,8 @@ Route::post('/addProduct', [SellerController::class, 'addProduct']);
 
 
 Route::post('/addPending', [PendingCartController::class, 'addPendingCarts']);
-Route::get('/truncateTable/{id}', [PendingCartController::class, 'truncateTable']);
+Route::get('/truncateTable/{id}', [PendingCartController::class, 'truncateTableById']);
+Route::get('/truncateTable', [PendingCartController::class, 'truncateTable']);
 Route::get('/getLocalData', [PendingCartController::class, 'getLocalcartData']);
 Route::put('/updateQtyPlusLocal/{id}', [PendingCartController::class, 'updateLocalQuantityPlus']);
 Route::put('/updateQtyMinusLocal/{id}', [PendingCartController::class, 'updateLocalQuantityMinus']);
@@ -62,11 +63,13 @@ Route::put('/updateQtyMinusLocal/{id}', [PendingCartController::class, 'updateLo
 
 Route::post('/postMyOrder', [MyOrdersController::class, 'postMyOrder']);
 Route::get('/getMyOrder/{id}', [MyOrdersController::class, 'getMyOrder']);
+Route::get('/cancelOrder/{id}', [MyOrdersController::class, 'cancelOrder']);
 
 
 Route::post('/addProduct', [AddProductController::class, 'addProduct']);
 Route::put('/updateProduct/{id}', [AddProductController::class, 'updateProduct']);
 Route::delete('/deleteProductByID/{id}', [AddProductController::class, 'deleteProductByID']);
+
 
 // Route::get('/getCartData/{id}', [AddToCartController::class, 'getcartData']);
 // Route::get('/getCartData/{id}', [AddProductController::class, 'getcartDataByUserId']);

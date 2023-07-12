@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\PendingCarts;
 
@@ -75,11 +75,15 @@ class PendingCartController extends Controller
             }
 
 
-            public function truncateTable($id){
+            public function truncateTableById($id){
                 $ItemId = explode(',', $id);
                 // DB::table('add_to_carts')->whereIn('user_id', $id)->delete();
                 PendingCarts::whereIn('id', $ItemId)->delete();
                 return ['Pending Carts Table has been truncate'];
+            }
+
+            public function truncateTable(){
+                DB::table('pending_carts')->truncate();
             }
 
 

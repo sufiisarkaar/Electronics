@@ -5,6 +5,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MinicartComponent } from '../minicart/minicart.component';
 import { MatButtonModule } from '@angular/material/button';
 import { fade } from 'src/app/animations';
+import { UserService } from '../categories/services/user.service';
 
 @Component({
   selector: 'app-products',
@@ -17,10 +18,14 @@ export class ProductsComponent implements OnInit {
 
   itemList: any;
 
-  constructor(private productSer: ProductService, private CartSer: CartService) { }
+  constructor(private productSer: ProductService, private CartSer: CartService, private US:UserService) { }
 
   ngOnInit(): void {
     this.getAllPro();
+    let user:any = localStorage.getItem("user");
+    let userName = user && JSON.parse( user ).data.name;
+   this.US.userName.emit(userName);
+  
   }
 
 

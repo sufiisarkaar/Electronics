@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CartService } from '../categories/services/cart.service';
 import { ProductService } from '../categories/services/product.service';
 import { UserService } from '../categories/services/user.service';
 import { MinicartComponent } from '../minicart/minicart.component';
@@ -12,7 +13,8 @@ import { MinicartComponent } from '../minicart/minicart.component';
 export class NavbarComponent implements OnInit {
 cartLength:any;
 userName:string ='';
-constructor(private productSer:ProductService, private dialog: MatDialog, private us: UserService){
+myOrderLength:any;
+constructor(private productSer:ProductService, private dialog: MatDialog, private us: UserService, private CS:CartService){
   let user:any = localStorage.getItem("user");
   let userName = user && JSON.parse( user ).data.name;
  this.us.userName.emit(userName);
@@ -25,6 +27,10 @@ ngOnInit(): void {
 
  this.us.userName.subscribe((res:any)=>{
    this.userName = res;
+ })
+
+ this.CS.myOrder.subscribe((res:any)=>{
+   this.myOrderLength = res;
  })
 
 }

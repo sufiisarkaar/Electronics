@@ -14,7 +14,7 @@
               <button class="btn btn-dark btn-sm rounded-0" (click)="plusQuantity(cart.id,cart.item_qty)">+</button>
             </div>
             <div class="list-group mt-1 text-success text-end">
-              <li class=" ">Sub-Total :  {{ cart.item_subtotal }}</li>
+              <li class=" ">Sub-Total :  {{ cart.item_subtotal | currency:'INR' }}</li>
             </div>
             <!-- <i class="bi bi-x-circle-fill float-end"></i> -->
           </li>
@@ -26,11 +26,11 @@
 
 
       <div class="col-5 list-group mt-3 mb-2 text-danger text-start">
-        <b class=" ">Grand-Total :  {{ grandTotal }}</b>
+        <b class=" ">Grand-Total :  {{ grandTotal | currency: 'INR' }}</b>
       </div>
       
       <div class="btnPlace col-5">
-        <button type="button" class="btn btn-dark  mt-3 mb-2  btn-sm w-100" >Checkout</button>
+        <button type="button" class="btn btn-dark  mt-3 mb-2  btn-sm w-100" (click)="checkout(cartData)" mat-dialog-close="true">Checkout</button>
       </div>
 
     </div>

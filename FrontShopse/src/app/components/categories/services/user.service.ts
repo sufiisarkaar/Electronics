@@ -24,6 +24,9 @@ userName = new EventEmitter<any>();
         setTimeout(() => {
         this.cartTodb();
         }, 2000);
+        let user:any = localStorage.getItem("user");
+        let userName = user && JSON.parse( user ).data.name;
+       this.userName.emit(userName);
 this.router.navigateByUrl("");
   } else {
         console.log(result.body.error);
@@ -40,18 +43,19 @@ this.router.navigateByUrl("");
       let UserId = JSON.parse( user ).data.id;
       if(user){
         dataLocal.forEach((product:any) => {
-
+          
           let Items = {
             ...product,
             user_id : UserId
           }
-
+          
           this.CS.addToCart(Items).subscribe((res:any)=>{
-            console.log(res,"ressssss");
+            this.CS.truncatePendingCartsTable();
+           
             localStorage.removeItem("cartItem");
             
           })
-          
+         
         });
         
       }

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row" *ngFor="let order of myOrderList">
+    <div class="d-flex justify-content-center col-12 mt-2 mb-2" >
+      <div class="col-4 image m-1 text-center">
+         <img src= {{order.item_image}} class="img-fluid" style="height:200px; width: 200px;" >
+      </div>
+      <div class="col-4 content mt-4 ">
+          <div class="dsc"> <h4 class="text-danger">{{ order.item_dsc }}</h4></div>
+          <div class="price"> <span> Item Price : {{ order.item_price | currency : 'INR' }}</span></div>
+          <div class="discount"> <span> Item Discount : -  {{ order.item_discount  }} %</span></div>
+          <div class="subtotal"><b> Item Subtotal : {{ order.item_subtotal | currency : 'INR' }}</b></div>
+         
+      </div>
+      <div class="col-4 button m-2 text-center">
+          <button class="btn btn-danger m-2" (click)="cancelOrder(order.id)">Cancel Order</button>
+          <button class="btn btn-info m-2">Track Order</button>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="col-12 text-end">
+      <h3 ><b>GRAND-TOTAL : {{ grandTotal | currency: 'INR' }}</b></h3>
+  </div>
+</div>

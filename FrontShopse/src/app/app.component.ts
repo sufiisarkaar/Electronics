@@ -10,8 +10,14 @@ import { UserService } from './components/categories/services/user.service';
 })
 export class AppComponent implements OnInit {
   url:any;
+  title:any = 'ecommerce';
+ 
+  status:boolean = false;
+
   constructor(private router:Router, private US:UserService){
-   
+    let user:any = localStorage.getItem("user");
+  let userName = user && JSON.parse( user ).data.name;
+ this.US.userName.emit(userName);
 
   }
 
@@ -19,10 +25,7 @@ export class AppComponent implements OnInit {
 
  
 
-  title:any = 'ecommerce';
  
-  status:boolean = false;
-
 
 ngOnInit(): void {
   let user:any = localStorage.getItem("user");

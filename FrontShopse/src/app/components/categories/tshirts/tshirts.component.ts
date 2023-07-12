@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fade } from 'src/app/animations';
 import { ProductService } from '../services/product.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tshirts',
@@ -10,10 +11,14 @@ import { ProductService } from '../services/product.service';
 })
 export class TshirtsComponent implements OnInit {
   tShirtsList: any[] = [];
-  constructor(private productSer: ProductService) {}
+  constructor(private productSer: ProductService,  private US: UserService) {}
 
   ngOnInit(): void {
     this.getAllTshirts();
+    let user:any = localStorage.getItem("user");
+    let userName = user && JSON.parse( user ).data.name;
+   this.US.userName.emit(userName);
+  
   }
 
   getAllTshirts() {

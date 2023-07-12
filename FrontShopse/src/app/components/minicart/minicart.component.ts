@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {  fadeLogin } from 'src/app/animations';
 import { CartService } from '../categories/services/cart.service';
 
@@ -14,7 +15,7 @@ export class MinicartComponent implements OnInit {
   cartCount: any;
   grandTotal: any;
   cartList: any;
-constructor(private CS:CartService){}
+constructor(private CS:CartService, private router:Router){}
 
 ngOnInit(): void {
 this.getCartData();
@@ -67,13 +68,39 @@ plusQuantity( id:any, qty:any){
 }
 
 minusQuantity( id:any, qty:any){
-  console.log(id,"dddddddd");
-  
+  let user :any= localStorage.getItem("user");
+  let userID = user && JSON.parse( user ).data.id;
+  if(userID){
   this.CS.updateMinusQTY(id,qty).subscribe((res:any)=>{
-    console.log(res,"QUANTITY");
+    
     this.getCartData();
     
   })
+} else{
+this.CS.LocalupdateCartQuantityMinus(id,qty).subscribe((res:any)=>{
+  this.getCartData();
+})
+}
+}
+
+
+checkout(cart:any){
+  let user:any = localStorage.getItem("user");
+  let userId = user && JSON.parse(user).data.id;
+  if(userId){
+    cart.forEach((myOrder:any) => {
+      this.CS.placeMyOrder(myOrder).subscribe((res:any)=>{
+        console.log(res,"From Place My Order");
+        this.CS.truncateAddToCarts(userId).subscribe((res:any)=>{
+          console.log(res);
+          
+        })
+         })
+    });
+  }else{
+this.router.navigateByUrl('login');
+  }
+
 }
 
 }

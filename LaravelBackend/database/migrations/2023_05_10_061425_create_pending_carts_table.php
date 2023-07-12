@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pending_carts', function (Blueprint $table) {
-            $table->id('cart_id');
+            $table->id('id');
             $table->string('user_id');
             $table->string('item_id');
             $table->string('item_name');
