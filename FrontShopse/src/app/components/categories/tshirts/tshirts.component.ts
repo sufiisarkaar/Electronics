@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class TshirtsComponent implements OnInit {
   tShirtsList: any[] = [];
+  searchText:any;
   constructor(private productSer: ProductService,  private US: UserService) {}
 
   ngOnInit(): void {

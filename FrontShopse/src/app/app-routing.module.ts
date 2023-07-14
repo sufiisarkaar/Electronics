@@ -11,6 +11,10 @@ import { ProductsComponent } from './components/products/products.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { MyOrderComponent } from './components/my-order/my-order.component';
+import { SellerLoginComponent } from './components/seller/seller-login/seller-login.component';
+import { SellerDashboardComponent } from './components/seller/seller-dashboard/seller-dashboard.component';
+import { AddProductComponent } from './components/seller/add-product/add-product.component';
+
 
 
 const routes: Routes = [
@@ -22,8 +26,11 @@ const routes: Routes = [
   { path: 'jeans', component: JeansComponent },
   { path: 'login', component: LoginUserComponent },
   { path: 'register', component: RegisterUserComponent },
-  { path: 'myOrder', component: MyOrderComponent}
-
+  { path: 'myOrder', component: MyOrderComponent},
+  { path: 'sellerLogin', component: SellerLoginComponent},
+  { path: 'sellerDashboard', component: SellerDashboardComponent},
+  { path: 'addProduct', component: AddProductComponent},
+  
 ];
 
 @NgModule({

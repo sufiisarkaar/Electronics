@@ -15,7 +15,7 @@ import { UserService } from '../categories/services/user.service';
  
 })
 export class ProductsComponent implements OnInit {
-
+  searchText:any;
   itemList: any;
 
   constructor(private productSer: ProductService, private CartSer: CartService, private US:UserService) { }

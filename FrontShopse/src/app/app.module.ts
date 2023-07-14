@@ -26,8 +26,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyOrderComponent } from './components/my-order/my-order.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SellerLoginComponent } from './components/seller/seller-login/seller-login.component';
+import { SellerDashboardComponent } from './components/seller/seller-dashboard/seller-dashboard.component';
+import { AddProductComponent } from './components/seller/add-product/add-product.component';
 
 
 
@@ -52,7 +56,10 @@ import { MyOrderComponent } from './components/my-order/my-order.component';
     SunglassComponent,
     ShirtsComponent,
     ShoesComponent,
-    MyOrderComponent
+    MyOrderComponent,
+    SellerLoginComponent,
+    SellerDashboardComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,9 @@ import { MyOrderComponent } from './components/my-order/my-order.component';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [],

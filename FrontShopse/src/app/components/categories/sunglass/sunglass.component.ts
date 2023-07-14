@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class SunglassComponent {
   sunglassList: any[] = [];
+  searchText:any;
   constructor(private productSer: ProductService, private US:UserService) {}
 
   ngOnInit(): void {

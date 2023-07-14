@@ -1,50 +1,55 @@
-
 <div class="container mt-5" @fade>
-  <h3 class="text-center">Latest Shirts</h3>
- <hr class="text-danger">
+
   <div class="row d-flex justify-content-center">
 
+    <div class="row d-flex justify-content-between">
+      <div class="col-4">
+        <h2 class=" " style="font-weight: bolder;">Latest Shirt</h2>
+      </div>
+      <div class="col-5 ">
+        <input class="form-control me-2" type="search" name="search"
+          placeholder="Search by Products name, category or price" aria-label="Search" [(ngModel)]="searchText">
+      </div>
+    </div>
+    <hr class="text-danger">
+
     <div class="col-3 card col-sm-3 border-0 shadow-lg m-4 rounded-start" style="height: auto !important;"
-    *ngFor="let items of shirtList">
-    <div class="imgDiv text-center">
-      <img src="{{ items.item_image }}" class="card-img-top img-fluid" alt="..." style="height:250px; width: 250px;">
+      *ngFor="let items of shirtList | filter:searchText">
+      <div class="imgDiv text-center">
+        <img src="{{ items.item_image }}" class="card-img-top img-fluid" alt="..." style="height:250px; width: 250px;">
+      </div>
+      <div class="card-body">
+        <div class="title">
+
+          <h4 class="card-title" style="height: 80px;">{{ items.item_name }}</h4>
+        </div>
+
+        <div class="row d-flex justify-content-evenly mb-3 text-success mt-2" style="height: 50px;">
+          <div class="col-6 category text-start">In {{ items.item_category }}</div>
+          <div class="col-6 price text-end">{{ items.item_price | currency }}</div>
+        </div>
+        <div class="dsc" style="height: auto;">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Know More
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>
+                {{ items.item_dsc }}
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="col-12 " style="height: 10%; margin-top: 5px !important;">
+
+          <button class="btn btn-dark btn-sm" type="button" style="width: 100%; " (click)=" addToCart(items)">Add to
+            cart</button>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <div class="title">
-
-        <h4 class="card-title" style="height: 80px;">{{ items.item_name }}</h4>
-      </div>
-
-      <div class="row d-flex justify-content-evenly mb-3 text-success mt-2" style="height: 50px;">
-        <div class="col-6 category text-start">In {{ items.item_category }}</div>
-        <div class="col-6 price text-end">{{ items.item_price | currency }}</div>
-      </div>
-      <div class="dsc" style="height: auto;">
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Know More
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <p>
-              {{ items.item_dsc }}
-            </p>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div>
-      <div class="col-12 " style="height: 10%; margin-top: 5px !important;">
-
-        <button class="btn btn-dark btn-sm" type="button" style="width: 100%; " (click)=" addToCart(items)">Add to cart</button>
-      </div>
-    </div>
-  </div>
 
 
   </div>
 </div>
-
-
-
-
-
