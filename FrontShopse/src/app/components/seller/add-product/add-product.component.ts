@@ -19,12 +19,16 @@ this.addProduct = this.FB.group({
   item_dsc : this.FB.control('',[Validators.required]),
   item_discount : this.FB.control('',[Validators.required]),
   item_qty : this.FB.control('',[Validators.required]),
-  item_image : this.imageURL,
+  
 })
   }
 
   addProducts(products:any){
-this.SS.productPost(products).subscribe((res:any)=>{
+    let productFinalWithImage = {
+      ...this.addProduct.value,
+      item_image : this.imageURL
+    }
+this.SS.productPost(productFinalWithImage).subscribe((res:any)=>{
   console.log(res,"api called");
   
 })
@@ -33,10 +37,13 @@ this.SS.productPost(products).subscribe((res:any)=>{
 
   onSelectFile(e:any){
     if(e.target.files){
+      console.log(e.target.files,"files");
+      
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload=(event:any)=>{
        this.imageURL = event.target.result;
+        console.log(this.imageURL,"IMAGEURL");
         
       }
     }
