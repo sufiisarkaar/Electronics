@@ -14,7 +14,14 @@
           </div>
 
           <div class="form-group  mt-3 mb-2">
-            <input type="text" formControlName="item_category" class="form-control"  placeholder="Item category" >
+            <select formControlName="item_category" class="form-select" aria-label="Item category" >
+              <option [selected]="true" disabled >Select item category</option>
+              <option value="Jeans">Jeans</option>
+              <option value="T-shirt">T-shirt</option>
+              <option value="Shirts">Shirts</option>
+              <option value="Shoes">Shoes</option>
+              <option value="Sunglasses">Sunglasses</option>
+              </select>
         </div>
 
   
