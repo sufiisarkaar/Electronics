@@ -29,7 +29,8 @@ getAllProduct(){
 
 
 editItem(items:any){
-
+console.log("edit Item",items);
+this.route.navigate(['/addProduct/',items.id ])
 }
 
 

@@ -23,4 +23,23 @@ export class SellerService {
   productPost(product:any){
     return this.http.post("http://localhost:8000/api/itemPost",product);
   }
+
+  
+
+  getProductById(id:any){
+    return this.http.get("http://localhost:8000/api/editProduct/"+id);
+  }
+
+  
+
+  updateProductByID(id:any, data:any){
+return this.http.put("http://localhost:8000/api/updateProducts/"+id,data);
+  }
+
+  
+
+  deleteProducts(id:any){
+    return this.http.get("http://localhost:8000/api/deleteProducts/"+id);
+      }
+    
 }

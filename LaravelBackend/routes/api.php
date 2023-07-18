@@ -27,6 +27,9 @@ use App\Http\Controllers\AddProductController;
 
 Route::post('/itemPost', [itemsController::class, 'postData']);
 Route::get('/itemGet',[itemsController::class, 'getData']);
+Route::get('/editProduct/{id}', [ItemsController::class, 'editProduct']);
+Route::put('/updateProducts/{id}', [ItemsController::class, 'updateProducts']);
+Route::get('/deleteProducts/{id}', [ItemsController::class, 'deleteProduct']);
 
 
 Route::post('/addCart', [AddToCartController::class, 'addToCart']);

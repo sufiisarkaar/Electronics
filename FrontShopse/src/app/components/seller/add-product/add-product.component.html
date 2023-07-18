@@ -10,11 +10,11 @@
   
       <div class="col-8">
           <div class="form-group mt-4 mb-2">
-              <input type="text" formControlName="item_name" class="form-control" placeholder="Item name" >
+              <input type="text" formControlName="item_name" class="form-control" placeholder="Item name" [(ngModel)]="editOBJ.item_name" >
           </div>
 
           <div class="form-group  mt-3 mb-2">
-            <select formControlName="item_category" class="form-select" aria-label="Item category" >
+            <select formControlName="item_category" class="form-select" aria-label="Item category" [(ngModel)]="editOBJ.item_category" >
               <option [selected]="true" disabled >Select item category</option>
               <option value="Jeans">Jeans</option>
               <option value="T-shirt">T-shirt</option>
@@ -26,29 +26,40 @@
 
   
           <div class="form-group  mt-3 mb-2">
-              <input type="text" formControlName="item_price" class="form-control"  placeholder="Item price" >
+              <input type="text" formControlName="item_price" class="form-control"  placeholder="Item price" [(ngModel)]="editOBJ.item_price">
           </div>
 
           <div class="form-group  mt-3 mb-2">
-            <input type="text" formControlName="item_dsc" class="form-control"  placeholder="Item description" >
+            <input type="text" formControlName="item_dsc" class="form-control"  placeholder="Item description" [(ngModel)]="editOBJ.item_dsc">
         </div>
 
         <div class="form-group  mt-3 mb-2">
-            <input type="text" formControlName="item_discount" class="form-control"  placeholder="Item discount"  >
+            <input type="text" formControlName="item_discount" class="form-control"  placeholder="Item discount" [(ngModel)]="editOBJ.item_discount" >
         </div>
 
         <div class="form-group  mt-3 mb-2">
-            <input type="text" formControlName="item_qty" class="form-control"  placeholder="Item quantity" >
+            <input type="text" formControlName="item_qty" class="form-control"  placeholder="Item quantity" [(ngModel)]="editOBJ.item_qty">
         </div>
 
         <div class="form-group  mt-3 mb-2">
-            <input type="file" formControlName="item_image" class="form-control" (change)="onSelectFile($event)" >
+            <input type="file" formControlName="item_image" class="form-control" (change)="onSelectFile($event)" [(ngModel)]="editOBJ.item_image" >
+            <div class="img" *ngIf="editOBJ.item_image.length > 0">
+            <img src="{{ editOBJ.item_image }}" style="height: 100px; width: 100px;" />
+          </div>
         </div>
   
   
-          <div class="form-group  mt-3 mb-2">
+          <div class="form-group  mt-3 mb-2" *ngIf="!editStatus">
               <input type="button" class="btn btn-danger" value="Add Product" (click)="addProducts(addProduct.value)" >
           </div>
+
+          <div class="form-group  mt-3 mb-2" *ngIf="editStatus">
+            <input type="button" class="btn btn-info" value="Update Product" (click)="updatePro()" >
+        </div>
+
+        <div class="form-group  mt-3 mb-2"  *ngIf="editStatus">
+          <input type="button" class="btn btn-dark" value="Delete Product" (click)="deletePro()" >
+      </div>
       </div>
      
   

@@ -30,4 +30,34 @@ class itemsController extends Controller
         return ["Result" => $items];
 
     }
+
+    public function editProduct($id){
+        $findPro = Items::find($id);
+        return ["Data" => $findPro];
+    }
+
+    public function updateProducts(Request $request, $id){
+        $updatePro = Items::find($id);
+        if($updatePro){
+            $updatePro->item_name = $request->item_name;
+            $updatePro->item_category = $request->item_category;
+            $updatePro->item_price = $request->item_price;
+            $updatePro->item_discount = $request->item_discount;
+            $updatePro->item_dsc = $request->item_dsc;
+            $updatePro->item_image = $request->item_image;
+            $updatePro->item_qty = $request->item_qty;
+            $updatePro->save();
+
+            return ["Message"=>"Updated Successfully","Data"=>$updatePro];
+        }
+         
+    }
+
+    public function deleteProduct($id){
+        $deletePro = Items::find($id);
+        if($deletePro){
+            $deletePro->delete();
+            return ["Message"=>"Items Has Been Deleted"];
+        }
+    }
 }

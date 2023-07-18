@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'sellerLogin', component: SellerLoginComponent},
   { path: 'sellerDashboard', component: SellerDashboardComponent},
   { path: 'addProduct', component: AddProductComponent},
+  { path: 'addProduct/:data', component: AddProductComponent},
   
 ];
 
